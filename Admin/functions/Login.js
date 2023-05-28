@@ -14,6 +14,8 @@ function login(){
       $("#Password").css({ 'border-color': '' });
      
     var v_email = $("#Email").val();
+    var name = $("#name").val();
+
     var v_pass = $("#Password").val();
     var valid=true;
     var mailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,6 +42,7 @@ else
         method: "POST",
         data: {
             email : v_email, 
+            name : name,
             pass : v_pass
         },
         dataType: "JSON",

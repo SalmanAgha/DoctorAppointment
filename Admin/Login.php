@@ -50,6 +50,15 @@
                                     <input type="text" class="form-control" id="Email" placeholder="Enter Email">
                                 </div>  <span id="v2" style="display:none; color : red;">-</span>                                   
                             </div><!--end form-group--> 
+                             <div class="form-group">
+                                <label for="username" style="color:#fff;">Name</label>
+                                <div class="input-group mb-3">
+                                    <span class="auth-form-icon">
+                                        <i class="dripicons-user"></i> 
+                                    </span>                                                                                                              
+                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                                </div>  <span id="v2" style="display:none; color : red;">-</span>                                   
+                            </div><!--end form-group--> 
                             <div class="form-group">
                                 <label for="userpassword" style="color:#fff;">Password</label>                                            
                                 <div class="input-group mb-3"> 
