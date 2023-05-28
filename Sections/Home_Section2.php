@@ -36,27 +36,28 @@
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title mt-0" id="mySmallModalLabel">Edit Patient</h3>
+                                        <h3 class="modal-title mt-0" id="mySmallModalLabel"><?php echo $_SESSION['fullname1'];?></h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                     </div>
                                     <div class="modal-body text-left">
                                      <div class="mb-3" >
                                         <label for="exampleFormControlInput1" class="form-label pt-3">Patient Name</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Patient Name">      
+                                        <input type="email" class="form-control" id="fullname1" placeholder="Patient Name">      
                                     </div>
                                     <div class="mb-3 mt-4" >
                                         <label for="exampleFormControlInput1" class="form-label pt-3">Age</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Age">      
+                                        <input type="email" class="form-control" id="age1" placeholder="Age">      
                                     </div>
                                     <div class="mb-3 mt-4" >
                                         <label for="exampleFormControlInput1" class="form-label pt-3">Gender</label>
-                                        <select class="form-select" aria-label="Default select example">
+                                        <input type="email" class="form-control" id="sex1" placeholder="Gender">      
+                                        <!-- <select class="form-select" aria-label="Default select example">
                                             <option selected>Gender</option>
                                             <option value="1">Male</option>
                                             <option value="2">Female</option>
-                                        </select>      
+                                        </select> -->      
                                     </div>
-                                    <button type="button" class="btn btn-danger col-12 mt-4"> Submit </button>      
+                                    <button type="button" class="btn btn-danger col-12 mt-4"  onclick="UpdatePatient();"> Submit </button>      
 
                                 </div>
                             </div><!-- /.modal-content -->

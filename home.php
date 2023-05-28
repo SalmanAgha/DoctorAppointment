@@ -1,4 +1,19 @@
- 
+<?php
+session_start();
+include('connect.php');
+error_reporting(1);
+
+if( !isset($_SESSION['userid']) ){
+    header("location: Login.php");
+}else{ 
+
+    $id = $_SESSION['Patientid'];
+    $userid = $_SESSION['userid'];
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

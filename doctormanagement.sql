@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 12:24 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 28, 2023 at 10:49 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
   `password` varchar(100) DEFAULT NULL,
   `doc` timestamp NULL DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -58,7 +58,7 @@ CREATE TABLE `appointment` (
   `adminid` int(100) DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL,
   `description` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointment`
@@ -83,7 +83,7 @@ CREATE TABLE `doctor` (
   `speciality` longtext DEFAULT NULL,
   `experience` longtext DEFAULT NULL,
   `doc` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `doctor`
@@ -103,7 +103,7 @@ CREATE TABLE `laboratory` (
   `testname` varchar(100) DEFAULT NULL,
   `testid` int(100) DEFAULT NULL,
   `price` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `laboratory`
@@ -128,7 +128,7 @@ CREATE TABLE `patient` (
   `sex` varchar(20) DEFAULT NULL,
   `previoushistory` longtext DEFAULT NULL,
   `doc` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `patient`
@@ -136,6 +136,36 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`Patientid`, `fullname`, `email`, `mobileno`, `address`, `age`, `sex`, `previoushistory`, `doc`) VALUES
 (1, 'Zeeshan', 'zeeshan107526@gmail.com', '03062398377', 'karachi', '24', 'Male', 'agha', '2023-05-10 11:46:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prescription`
+--
+
+CREATE TABLE `prescription` (
+  `prescriptionid` int(11) NOT NULL,
+  `patientid` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `age` varchar(20) DEFAULT NULL,
+  `sex` varchar(20) DEFAULT NULL,
+  `monileno` varchar(20) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `chiefcomplainte` varchar(100) DEFAULT NULL,
+  `diagnosis` varchar(100) DEFAULT NULL,
+  `serialno` varchar(100) DEFAULT NULL,
+  `prescription` varchar(100) DEFAULT NULL,
+  `dose` varchar(100) DEFAULT NULL,
+  `direction` varchar(100) DEFAULT NULL,
+  `duration` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `prescription`
+--
+
+INSERT INTO `prescription` (`prescriptionid`, `patientid`, `name`, `age`, `sex`, `monileno`, `address`, `chiefcomplainte`, `diagnosis`, `serialno`, `prescription`, `dose`, `direction`, `duration`) VALUES
+(1, '1', 'agha', '24', 'male', '03062398377', 'karachi', 'dfwe', 'fewf', '1', 'dfq', 'vwq', 'vqwevwer', 'ewrvf');
 
 -- --------------------------------------------------------
 
@@ -148,7 +178,7 @@ CREATE TABLE `user` (
   `name` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -192,6 +222,12 @@ ALTER TABLE `patient`
   ADD PRIMARY KEY (`Patientid`);
 
 --
+-- Indexes for table `prescription`
+--
+ALTER TABLE `prescription`
+  ADD PRIMARY KEY (`prescriptionid`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -230,6 +266,12 @@ ALTER TABLE `laboratory`
 --
 ALTER TABLE `patient`
   MODIFY `Patientid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `prescription`
+--
+ALTER TABLE `prescription`
+  MODIFY `prescriptionid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
