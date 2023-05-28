@@ -1,11 +1,12 @@
 <?php
 
 
-if(isset($_POST['email']) &&     isset($_POST['pass']) )
+if(isset($_POST['email']) &&  isset($_POST['name']) &&     isset($_POST['pass']) )
 {
 	
 
 	$email = htmlentities($_POST["email"]);  
+	$name = htmlentities($_POST["name"]);  
 	$Password = htmlentities($_POST["pass"]); 
 	$dbemail = '';
 	$dbPassword = '';
@@ -18,8 +19,8 @@ if(isset($_POST['email']) &&     isset($_POST['pass']) )
 	include('../../connect.php');
 
 
-	$stmt = $connect -> prepare( "SELECT `adminid`, `adminname`, `email`, `password` FROM `admin` WHERE email = ?");
-	$stmt -> bind_param("s", $email);
+	$stmt = $connect -> prepare( "SELECT `adminid`, `adminname`, `email`, `password` FROM `admin` WHERE email = ? and name = ?");
+	$stmt -> bind_param("ss", $email,$name);
 
    //Executing the statement
 	$stmt->execute();
